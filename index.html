@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tienda de Apps para Android TV</title>
+<style>
+  :root{
+    --bg:#0b0d12;
+    --card:#151922;
+    --card-border:#242a38;
+    --text:#f2f5fa;
+    --muted:#8d97ab;
+    --accent:#00e5ff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:.8333vw} /* 16px a 1920px; escala automática a 4K */
+  html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);
+    font-family:"Segoe UI",Roboto,Arial,sans-serif;cursor:none}
+  body{display:flex;flex-direction:column;align-items:center;
+    background:radial-gradient(ellipse at 50% 0%,#141a2b 0%,var(--bg) 65%)}
+
+  header{height:9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none}
+  header h1{font-size:3.2rem;font-weight:700;letter-spacing:.08rem}
+  header h1 span{color:var(--accent)}
+  header p{font-size:1.3rem;color:var(--muted);margin-top:.4rem}
+
+  main{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+  .grid{display:grid;grid-template-columns:repeat(3,29rem);grid-template-rows:repeat(2,23rem);gap:2.4rem}
+
+  .card{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;
+    background:var(--card);border:.25rem solid var(--card-border);border-radius:1.6rem;
+    color:var(--text);text-decoration:none;outline:none;
+    transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;
+    will-change:transform;
+  }
+  .card:focus,.card.focused{
+    transform:scale(1.05);border-color:var(--accent);
+    box-shadow:0 0 1.2rem .2rem rgba(0,229,255,.55),0 0 3.5rem .5rem rgba(0,229,255,.25);
+    background:#1b2130;z-index:2;
+  }
+  .icon{width:7.6rem;height:7.6rem;border-radius:1.8rem;display:flex;align-items:center;justify-content:center}
+  .icon svg{width:4.6rem;height:4.6rem}
+  .name{font-size:2rem;font-weight:600;text-align:center;padding:0 1rem}
+  .dl{display:flex;align-items:center;gap:.7rem;font-size:1.3rem;font-weight:600;
+    padding:.6rem 1.6rem;border-radius:5rem;background:#222a3b;color:var(--muted);
+    transition:background .15s ease,color .15s ease}
+  .dl svg{width:1.4rem;height:1.4rem}
+  .card:focus .dl,.card.focused .dl{background:var(--accent);color:#04121a}
+
+  footer{height:5.5rem;flex:none;display:flex;align-items:center;justify-content:center;
+    font-size:1.5rem;color:var(--muted);width:100%}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Tienda de <span>Apps</span> TV</h1>
+  <p>Usa las flechas del control para elegir y presiona OK para descargar</p>
+</header>
+
+<main>
+  <div class="grid" id="grid">
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/618r2k4m6910hdf/XW.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#ff512f,#dd2476)">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="name">Xuper Win</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/vx6zeq987yfgqxh/XNF.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#e50914,#7a0510)">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M4 3h4l8 12V3h4v18h-4L8 9v12H4z"/></svg>
+      </div>
+      <div class="name">Xuper NF</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/81db8oyorfrq0qv/TVBrowser.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#fb542b,#ff9a3c)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>
+      </div>
+      <div class="name">Navegador Brave</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/fkgskold9d8u5q3/Explo.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#f6b73c,#e58a00)">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
+      </div>
+      <div class="name">Explorador de Archivos</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/kyrpcmruwxk12ic/Downloader.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#11998e,#38ef7d)">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M11 3h2v9.2l3.6-3.6L18 10l-6 6-6-6 1.4-1.4L11 12.2V3zM5 19h14v2H5z"/></svg>
+      </div>
+      <div class="name">Downloader</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+    <a class="card" tabindex="0" target="_blank" rel="noopener noreferrer"
+       href="https://www.mediafire.com/file/sswx4le9in8qxr6/Aptoide.apk/file">
+      <div class="icon" style="background:linear-gradient(135deg,#ff6a00,#ee0979)">
+        <svg viewBox="0 0 24 24" fill="#fff"><path d="M7 4h10l1 4H6l1-4zM5 9h14l-1 11H6L5 9zm5 2v2a2 2 0 0 0 4 0v-2h-2v2h0v-2h-2z"/></svg>
+      </div>
+      <div class="name">Aptoide</div>
+      <div class="dl"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>Descargar</div>
+    </a>
+
+  </div>
+</main>
+
+<footer>Página creada ❤️ para los que amamos Android TV</footer>
+
+<script>
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var COLS = 3, current = 0;
+
+  function focusCard(i){
+    if (i < 0 || i >= cards.length) return;
+    current = i;
+    cards[i].focus();
+  }
+
+  // Mantener el índice sincronizado con el foco real
+  cards.forEach(function(c, i){
+    c.addEventListener('focus', function(){ current = i; });
+  });
+
+  document.addEventListener('keydown', function(e){
+    var k = e.key, code = e.keyCode, next = current;
+
+    if (k === 'ArrowRight' || code === 39){ if ((current % COLS) < COLS - 1) next = current + 1; }
+    else if (k === 'ArrowLeft' || code === 37){ if ((current % COLS) > 0) next = current - 1; }
+    else if (k === 'ArrowDown' || code === 40){ if (current + COLS < cards.length) next = current + COLS; }
+    else if (k === 'ArrowUp' || code === 38){ if (current - COLS >= 0) next = current - COLS; }
+    else if (k === 'Enter' || code === 13 || code === 23){ // 23 = DPAD_CENTER
+      e.preventDefault();
+      cards[current].click();
+      return;
+    }
+    else { return; }
+
+    e.preventDefault();
+    focusCard(next);
+  });
+
+  // Si el foco se pierde (p. ej. al volver de la otra pestaña), recuperarlo
+  function ensureFocus(){
+    if (!document.activeElement || !document.activeElement.classList.contains('card')) focusCard(current);
+  }
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) ensureFocus(); });
+  window.addEventListener('focus', ensureFocus);
+  document.addEventListener('click', function(e){ if (!e.target.closest('.card')) ensureFocus(); });
+
+  focusCard(0);
+})();
+</script>
+</body>
+</html>
